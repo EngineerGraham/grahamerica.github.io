@@ -215,7 +215,7 @@
   }
   
   .experience__text{
-    text-align: left;
+    text-align: right;
   }
   
   @media (max-width: 768px) {
