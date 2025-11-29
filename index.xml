@@ -45,8 +45,22 @@ With Jekyll, something that looked like&lt;/p&gt;
  ▾ images/
  logo.png
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as &lt;code&gt;CNAME&lt;/code&gt;) to be moved to &lt;code&gt;static&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>Travel</title><link>https://grahamhenrysmith.com/map/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://grahamhenrysmith.com/map/</guid><description>&lt;h1&gt;Map Test&lt;/h1&gt;
-&lt;p&gt;If you can see this, the page content is rendering correctly.&lt;/p&gt;
-&lt;div style="background: red; padding: 50px; color: white;"&gt;
- This is a red box test.
-&lt;/div&gt;</description></item></channel></rss>
+&lt;p&gt;Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as &lt;code&gt;CNAME&lt;/code&gt;) to be moved to &lt;code&gt;static&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>Travel</title><link>https://grahamhenrysmith.com/map/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://grahamhenrysmith.com/map/</guid><description>&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"&gt;
+&lt;link href="https://grahamhenrysmith.com/css/map.css" rel="stylesheet"&gt;
+&lt;div class="container-fluid map-container"&gt;
+ &lt;div class="map-controls"&gt;
+ &lt;button id="zoom-in" class="map-btn" title="Zoom In"&gt;+&lt;/button&gt;
+ &lt;button id="zoom-out" class="map-btn" title="Zoom Out"&gt;-&lt;/button&gt;
+ &lt;button id="zoom-reset" class="map-btn" title="Reset"&gt;Reset&lt;/button&gt;
+ &lt;/div&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;div id=&amp;quot;map-wrapper&amp;quot;&amp;gt;
+ &amp;lt;div id=&amp;quot;map-content&amp;quot;&amp;gt;
+ &amp;lt;img src=&amp;quot;/img/map/world.svg&amp;quot; alt=&amp;quot;World Map&amp;quot; id=&amp;quot;world-map&amp;quot;&amp;gt;
+ &amp;lt;div id=&amp;quot;pins-container&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+ &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://grahamhenrysmith.com/js/map.js"&gt;&lt;/script&gt;</description></item></channel></rss>
