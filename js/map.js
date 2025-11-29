@@ -86,7 +86,7 @@
 
     function openGallery(images, locationName) {
         if (!images || images.length === 0) {
-            console.warn('No images for location:', locationName);
+            showNoImagesNotice(locationName);
             return;
         }
 
@@ -118,6 +118,32 @@
         });
 
         lightbox.open();
+    }
+
+    function showNoImagesNotice(locationName) {
+        // Remove any existing notice
+        var existing = document.querySelector('.no-images-notice');
+        if (existing) existing.remove();
+
+        // Create notice element
+        var notice = document.createElement('div');
+        notice.className = 'no-images-notice';
+        notice.innerHTML =
+            '<div class="notice-content">' +
+            '<h3>' + locationName + '</h3>' +
+            '<p>No images yet</p>' +
+            '<button class="notice-close">OK</button>' +
+            '</div>';
+
+        document.body.appendChild(notice);
+
+        // Close handlers
+        notice.querySelector('.notice-close').addEventListener('click', function() {
+            notice.remove();
+        });
+        notice.addEventListener('click', function(e) {
+            if (e.target === notice) notice.remove();
+        });
     }
 
 })();

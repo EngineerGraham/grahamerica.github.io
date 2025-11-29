@@ -196,3 +196,53 @@
         height: 10px;
     }
 }
+
+/* No Images Notice */
+.no-images-notice {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.notice-content {
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    max-width: 300px;
+}
+
+.notice-content h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 20px;
+}
+
+.notice-content p {
+    margin: 0 0 20px 0;
+    color: #888;
+    font-size: 14px;
+}
+
+.notice-close {
+    background: #da4d4d;
+    color: #fff;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.notice-close:hover {
+    background: #c43c3c;
+}
