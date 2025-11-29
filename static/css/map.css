@@ -154,6 +154,28 @@
     visibility: visible;
 }
 
+/* No images text in tooltip */
+.no-images-text {
+    display: block;
+    font-size: 11px;
+    color: #aaa;
+    margin-top: 4px;
+    font-style: italic;
+}
+
+/* Grey out pins without images */
+.map-pin.no-images .pin-head {
+    background: #888;
+}
+
+.map-pin.no-images .pin-stem {
+    background: #888;
+}
+
+.map-pin.no-images:hover .pin-head {
+    background: #666;
+}
+
 /* Magnific Popup Customizations */
 .mfp-gallery .mfp-title {
     text-align: center;
