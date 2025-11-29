@@ -3,6 +3,15 @@
     <div class="container">
         <div class="row flex-column-reverse flex-md-row rad-fade-down">
 
+            <div class="col-12 col-sm-6 mt-5 mt-sm-0 experience__text">
+                {{ range .Site.Data.homepage.experience.items }}
+                <div class="experience">
+                    <div class="experience__date lead">{{ .duration }}</div>
+                    <div class="experience__title">{{ .title }}</div>
+                    <div class="experience__company">{{ .company }}</div>
+                </div>
+                {{ end }}
+            </div>
             <div class="col-12 col-sm-6">
                 <h2>{{ .Site.Data.homepage.experience.title }}</h2>
                 <p class="lead">
@@ -18,15 +27,6 @@
                     <i class="{{ .Site.Data.homepage.experience.button2.icon }}"></i>
                     {{ .Site.Data.homepage.experience.button2.btnText }}
                 </a>
-            </div>
-            <div class="col-12 col-sm-6 mt-5 mt-sm-0 experience__text">
-                {{ range .Site.Data.homepage.experience.items }}
-                <div class="experience">
-                    <div class="experience__date lead">{{ .duration }}</div>
-                    <div class="experience__title">{{ .title }}</div>
-                    <div class="experience__company">{{ .company }}</div>
-                </div>
-                {{ end }}
             </div>
         </div>
     </div>
