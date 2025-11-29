@@ -1,10 +1,46 @@
 (function() {
     'use strict';
 
-    // Wait for DOM to be ready
     document.addEventListener('DOMContentLoaded', function() {
-        initMap();
+        loadLocationsAndInit();
     });
+
+    function loadLocationsAndInit() {
+        fetch('/data/locations.json')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                createPins(data.locations);
+                initMap();
+            })
+            .catch(function(err) {
+                console.error('Error loading locations:', err);
+                initMap();
+            });
+    }
+
+    function createPins(locations) {
+        var container = document.getElementById('pins-container');
+        if (!container || !locations) return;
+
+        locations.forEach(function(loc) {
+            var pin = document.createElement('div');
+            pin.className = 'map-pin';
+            pin.setAttribute('data-id', loc.id);
+            pin.setAttribute('data-name', loc.name);
+            pin.setAttribute('data-images', JSON.stringify(loc.images));
+            pin.style.left = loc.x + '%';
+            pin.style.top = loc.y + '%';
+
+            pin.innerHTML =
+                '<div class="pin-stem"></div>' +
+                '<div class="pin-head"></div>' +
+                '<div class="pin-tooltip">' + loc.name + '</div>';
+
+            container.appendChild(pin);
+        });
+    }
 
     function initMap() {
         var mapContent = document.getElementById('map-content');
@@ -14,7 +50,6 @@
 
         if (!mapContent) return;
 
-        // Initialize Panzoom
         var panzoom = Panzoom(mapContent, {
             maxScale: 5,
             minScale: 1,
@@ -24,13 +59,11 @@
             cursor: 'grab'
         });
 
-        // Enable mouse wheel zoom
         var mapWrapper = document.getElementById('map-wrapper');
         mapWrapper.addEventListener('wheel', function(event) {
             panzoom.zoomWithWheel(event);
         });
 
-        // Zoom controls
         zoomInBtn.addEventListener('click', function() {
             panzoom.zoomIn();
         });
@@ -43,11 +76,10 @@
             panzoom.reset();
         });
 
-        // Initialize pin click handlers
-        initPins();
+        initPinClicks();
     }
 
-    function initPins() {
+    function initPinClicks() {
         var pins = document.querySelectorAll('.map-pin');
 
         pins.forEach(function(pin) {
@@ -76,7 +108,6 @@
     }
 
     function openGallery(images, locationName) {
-        // Build items array for Magnific Popup
         var items = images.map(function(src, index) {
             return {
                 src: src,
@@ -84,7 +115,6 @@
             };
         });
 
-        // Open Magnific Popup gallery
         $.magnificPopup.open({
             items: items,
             type: 'image',
@@ -100,7 +130,6 @@
             removalDelay: 300,
             callbacks: {
                 open: function() {
-                    // Pause panzoom interactions while popup is open
                     document.body.style.overflow = 'hidden';
                 },
                 close: function() {
