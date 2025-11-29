@@ -3,7 +3,7 @@ showcase:
   enable: true
   title: "Hello, I’m Graham."
   //subtitle: "Aspiring Tech Entrepreneur"
-  description: "I'm CTO and co-founder at <a target='_blank' href='https://babylonmicrofarms.com/'>Babylon</a>, a vertical farming company based in Richmond, VA."
+  description: "I work on products that I feel will make people's lives happier and healthier. I'm a product leader and engineer who's spent the last 9 years building hardware and software at the intersection of AI, IoT, and sustainability. After co-founding Babylon Micro-Farms and scaling it from prototype to global deployment, I'm exploring now exploring ways to work at the intersection of cutting-edge AI research and real-world products."
   image:
     alt: "Microfarm.jpg"
     # x: "img/showcase/showcase.png"
@@ -43,14 +43,7 @@ about:
   enable: true
   title: "Who am I?"
   content: '<p class="lead">
-    I am back, after a few days of vacationing with family. Weather was awesome, the beach was
-    full of nasty jelly-fish, yuk! All-in-all, life has been good. I hope life has been as
-    good for all of you.
-    </p>
-    <p class="lead">
-    My area of focus lies in designing web and mobile products, user research as well as
-    leading of design & front-end teams. I enjoy designing and coding the UI as much as
-    talking with users to iterate and improve the experiences that reach business goals.
+    When I''m not thinking about product strategy, I''m usually cooking Thai food, camping, planning the next trip, or tinkering with some side project. Check out the projects tab to see what I''ve been building lately.
     </p>'
   button:
     icon: "icon-smile-fill"
@@ -73,7 +66,7 @@ about:
 experience:
   enable: true
   title: "Experience"
-  description: "6+ years experience leading technical teams, across mechanical, electrical, and software engineering. Experienced in Agtech, Medical Devices, and IoT. At Babylon, I have led Manufacturing, Field service, and teams of up to 10 engineers to develop and launch a highly automated vertical farming system, powered by remote management software. Notable achievements at Babylon include UL certification, acquiring and leading $2M+ in competitive research grants from NSF and other agencies, and being listed on Forbes 30 Under 30."
+  description: "Previously: Co-founder & CTO at Babylon Micro-Farms, where I led cross-functional teams across engineering, product, and manufacturing to deploy IoT-enabled vertical farms across 40+ states, 5 countries, and at sea. Forbes 30 Under 30. Secured and led $2M+ in NSF/DoD research grants developing computer vision and ML for precision agriculture. Biomedical Engineering, UVA."
   button:
     icon: "icon-linkedin-fill"
     btnText: "Linkedin"
@@ -84,13 +77,13 @@ experience:
     URL: "#"
 
   items:
-    - title: "CTO and Co-founder"
-      company: "Babylon Microfarms"
-      duration: "2017 - Current"
+    - title: "Board Member"
+      company: "Babylon Micro-Farms"
+      duration: "2025 - Current"
 
-    - title: "Founder"
-      company: "Orthotrac"
-      duration: "2015 - 2017"
+    - title: "CTO and Co-founder"
+      company: "Babylon Micro-Farms"
+      duration: "2017 - 2025"
 
     - title: "Device Design Engineer"
       company: "Upperline Health"
