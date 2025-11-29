@@ -230,6 +230,7 @@
 
   .experience__description{
     padding-left: 30px;
+    border-left: 1px solid #333;
   }
   
   @media (max-width: 768px) {
