@@ -38,35 +38,14 @@
                 '<div class="pin-head"></div>' +
                 '<div class="pin-tooltip">' + loc.name + '</div>';
 
-            // Add click handler directly when creating the pin
             pin.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                handlePinClick(loc);
+                openGallery(loc.images, loc.name);
             });
 
             container.appendChild(pin);
         });
-    }
-
-    function handlePinClick(loc) {
-        var images = loc.images;
-        var name = loc.name;
-
-        if (!images || images.length === 0) {
-            console.warn('No images for location:', name);
-            return;
-        }
-
-        // Check if jQuery and Magnific Popup are available
-        if (typeof $ === 'undefined' || typeof $.magnificPopup === 'undefined') {
-            console.error('jQuery or Magnific Popup not loaded');
-            // Fallback: open first image in new tab
-            window.open(images[0], '_blank');
-            return;
-        }
-
-        openGallery(images, name);
     }
 
     function initMap() {
@@ -106,35 +85,39 @@
     }
 
     function openGallery(images, locationName) {
+        if (!images || images.length === 0) {
+            console.warn('No images for location:', locationName);
+            return;
+        }
+
+        // Check if GLightbox is available
+        if (typeof GLightbox === 'undefined') {
+            console.error('GLightbox not loaded');
+            window.open(images[0], '_blank');
+            return;
+        }
+
+        // Build gallery items for GLightbox
         var items = images.map(function(src, index) {
             return {
-                src: src,
-                title: locationName + ' (' + (index + 1) + '/' + images.length + ')'
+                href: src,
+                type: 'image',
+                title: locationName,
+                description: 'Image ' + (index + 1) + ' of ' + images.length
             };
         });
 
-        $.magnificPopup.open({
-            items: items,
-            type: 'image',
-            gallery: {
-                enabled: true,
-                navigateByImgClick: true,
-                preload: [0, 1]
-            },
-            image: {
-                titleSrc: 'title'
-            },
-            mainClass: 'mfp-fade',
-            removalDelay: 300,
-            callbacks: {
-                open: function() {
-                    document.body.style.overflow = 'hidden';
-                },
-                close: function() {
-                    document.body.style.overflow = '';
-                }
-            }
+        // Create and open lightbox
+        var lightbox = GLightbox({
+            elements: items,
+            touchNavigation: true,
+            loop: true,
+            closeButton: true,
+            zoomable: false,
+            draggable: false
         });
+
+        lightbox.open();
     }
 
 })();
