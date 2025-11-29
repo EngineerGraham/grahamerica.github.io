@@ -6,7 +6,7 @@ languageCode = "en-us"
 # Site language. Available translations in the theme's `/i18n` directory.
 defaultContentLanguage = "en"
 # Enable comments by entering your Disqus shortname
-disqusShortname = "devcows"
+# disqusShortname moved to [services.disqus] section below
 # Enable Google Analytics by entering your tracking code
 googleAnalytics = ""
 
@@ -14,7 +14,8 @@ googleAnalytics = ""
 summaryLength = 70
 
 # Define the number of posts per page
-paginate = 10
+[pagination]
+  pagerSize = 10
 
 # not pluralize title pages by default
 pluralizelisttitles = false
@@ -257,3 +258,7 @@ pluralizelisttitles = false
   category = "categories"
   tag = "tags"
   author = "authors"
+
+[services]
+  [services.disqus]
+    shortname = "devcows"
