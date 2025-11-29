@@ -220,11 +220,11 @@
   
   .experience__text{
     text-align: right;
-    padding-right: 60px;
+    padding-right: 90px;
   }
 
   .experience__description{
-    padding-left: 60px;
+    padding-left: 90px;
   }
   
   @media (max-width: 768px) {
