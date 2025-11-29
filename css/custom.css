@@ -47,6 +47,10 @@
     }
   }
   
+  .rad-showcase--index {
+    margin-top: 40px;
+  }
+
   .showcase__container{
   /* display: flex; */
   /* align-items: center; */
@@ -216,6 +220,11 @@
   
   .experience__text{
     text-align: right;
+    padding-right: 60px;
+  }
+
+  .experience__description{
+    padding-left: 60px;
   }
   
   @media (max-width: 768px) {
