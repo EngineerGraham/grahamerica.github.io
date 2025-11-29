@@ -259,6 +259,7 @@ pluralizelisttitles = false
   tag = "tags"
   author = "authors"
 
-[services]
-  [services.disqus]
-    shortname = "devcows"
+# Disqus comments disabled
+# [services]
+#   [services.disqus]
+#     shortname = "devcows"
