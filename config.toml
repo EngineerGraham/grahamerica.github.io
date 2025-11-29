@@ -49,11 +49,11 @@ pluralizelisttitles = false
     url        = "/projects/"
     weight     = 2
 
-#[[menu.main]]
-#    name       = "Travel"
-#    identifier = "menu.travel"
-#    url        = "/travel/"
-#    weight     = 3
+[[menu.main]]
+    name       = "Travel"
+    identifier = "menu.travel"
+    url        = "/map/"
+    weight     = 3
 
 [[menu.main]]
     identifier = "contact"
