@@ -3,7 +3,7 @@ showcase:
   enable: true
   title: "Hello, I’m Graham."
   //subtitle: "Aspiring Tech Entrepreneur"
-  description: "I work on products that I feel will make people's lives happier and healthier. I'm a product leader and engineer who's spent the last 9 years building hardware and software at the intersection of AI, IoT, and sustainability. After co-founding Babylon Micro-Farms and scaling it from prototype to global deployment, I'm now exploring ways to work at the intersection of cutting-edge AI research and real-world products."
+  description: "I work on products that I feel will make people's lives happier and healthier. I'm a product leader and engineer who's spent the last 9 years building hardware and software at the intersection of AI, IoT, and sustainability. After co-founding Babylon Micro-Farms and scaling it from prototype to global deployment, I'm now exploring ways to work with cutting edge AI research and products to make real-world, positive impact."
   image:
     alt: "Microfarm.jpg"
     # x: "img/showcase/showcase.png"
