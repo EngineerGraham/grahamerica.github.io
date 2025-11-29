@@ -38,8 +38,35 @@
                 '<div class="pin-head"></div>' +
                 '<div class="pin-tooltip">' + loc.name + '</div>';
 
+            // Add click handler directly when creating the pin
+            pin.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                handlePinClick(loc);
+            });
+
             container.appendChild(pin);
         });
+    }
+
+    function handlePinClick(loc) {
+        var images = loc.images;
+        var name = loc.name;
+
+        if (!images || images.length === 0) {
+            console.warn('No images for location:', name);
+            return;
+        }
+
+        // Check if jQuery and Magnific Popup are available
+        if (typeof $ === 'undefined' || typeof $.magnificPopup === 'undefined') {
+            console.error('jQuery or Magnific Popup not loaded');
+            // Fallback: open first image in new tab
+            window.open(images[0], '_blank');
+            return;
+        }
+
+        openGallery(images, name);
     }
 
     function initMap() {
@@ -56,7 +83,8 @@
             contain: 'outside',
             startScale: 1,
             panOnlyWhenZoomed: false,
-            cursor: 'grab'
+            cursor: 'grab',
+            excludeClass: 'map-pin'
         });
 
         var mapWrapper = document.getElementById('map-wrapper');
@@ -74,36 +102,6 @@
 
         resetBtn.addEventListener('click', function() {
             panzoom.reset();
-        });
-
-        initPinClicks();
-    }
-
-    function initPinClicks() {
-        var pins = document.querySelectorAll('.map-pin');
-
-        pins.forEach(function(pin) {
-            pin.addEventListener('click', function(e) {
-                e.stopPropagation();
-
-                var name = pin.getAttribute('data-name');
-                var imagesJson = pin.getAttribute('data-images');
-                var images = [];
-
-                try {
-                    images = JSON.parse(imagesJson);
-                } catch (err) {
-                    console.error('Error parsing images for pin:', name);
-                    return;
-                }
-
-                if (images.length === 0) {
-                    console.warn('No images for location:', name);
-                    return;
-                }
-
-                openGallery(images, name);
-            });
         });
     }
 
