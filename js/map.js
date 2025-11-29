@@ -25,18 +25,21 @@
         if (!container || !locations) return;
 
         locations.forEach(function(loc) {
+            var hasImages = loc.images && loc.images.length > 0;
             var pin = document.createElement('div');
-            pin.className = 'map-pin';
+            pin.className = 'map-pin' + (hasImages ? '' : ' no-images');
             pin.setAttribute('data-id', loc.id);
             pin.setAttribute('data-name', loc.name);
             pin.setAttribute('data-images', JSON.stringify(loc.images));
             pin.style.left = loc.x + '%';
             pin.style.top = loc.y + '%';
 
+            var tooltipText = hasImages ? loc.name : loc.name + '<span class="no-images-text">No images yet</span>';
+
             pin.innerHTML =
                 '<div class="pin-stem"></div>' +
                 '<div class="pin-head"></div>' +
-                '<div class="pin-tooltip">' + loc.name + '</div>';
+                '<div class="pin-tooltip">' + tooltipText + '</div>';
 
             pin.addEventListener('click', function(e) {
                 e.preventDefault();
