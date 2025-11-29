@@ -29,30 +29,36 @@
         grid.id = 'map-grid';
         grid.className = 'map-grid';
 
-        // Create vertical lines (X axis) every 5%
-        for (var x = 0; x <= 100; x += 5) {
+        // Create vertical lines (X axis) every 1%
+        for (var x = 0; x <= 100; x += 1) {
             var line = document.createElement('div');
-            line.className = 'grid-line-v';
+            line.className = 'grid-line-v' + (x % 5 === 0 ? ' grid-line-major' : '');
             line.style.left = x + '%';
 
-            var label = document.createElement('span');
-            label.className = 'grid-label-x';
-            label.textContent = x;
-            line.appendChild(label);
+            // Only label every 5%
+            if (x % 5 === 0) {
+                var label = document.createElement('span');
+                label.className = 'grid-label-x';
+                label.textContent = x;
+                line.appendChild(label);
+            }
 
             grid.appendChild(line);
         }
 
-        // Create horizontal lines (Y axis) every 5%
-        for (var y = 0; y <= 100; y += 5) {
+        // Create horizontal lines (Y axis) every 1%
+        for (var y = 0; y <= 100; y += 1) {
             var line = document.createElement('div');
-            line.className = 'grid-line-h';
+            line.className = 'grid-line-h' + (y % 5 === 0 ? ' grid-line-major' : '');
             line.style.top = y + '%';
 
-            var label = document.createElement('span');
-            label.className = 'grid-label-y';
-            label.textContent = y;
-            line.appendChild(label);
+            // Only label every 5%
+            if (y % 5 === 0) {
+                var label = document.createElement('span');
+                label.className = 'grid-label-y';
+                label.textContent = y;
+                line.appendChild(label);
+            }
 
             grid.appendChild(line);
         }

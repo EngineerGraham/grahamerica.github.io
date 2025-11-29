@@ -170,7 +170,7 @@
     top: 0;
     bottom: 0;
     width: 1px;
-    background: rgba(0, 0, 0, 0.25);
+    background: rgba(0, 0, 0, 0.15);
 }
 
 .grid-line-h {
@@ -178,7 +178,15 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: rgba(0, 0, 0, 0.25);
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.grid-line-v.grid-line-major {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.grid-line-h.grid-line-major {
+    background: rgba(0, 0, 0, 0.4);
 }
 
 .grid-label-x {
