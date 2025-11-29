@@ -14,7 +14,9 @@
 
         {{ partial "nav.html" . }}
 
+        {{ if not (isset .Params "id") }}
         {{ partial "breadcrumbs.html" . }}
+        {{ end }}
 
         <div id="content">
             {{ if isset .Params "id" }}

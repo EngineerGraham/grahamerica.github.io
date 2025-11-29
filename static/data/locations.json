@@ -25,7 +25,9 @@
       "x": 24.5,
       "y": 33.5,
       "images": [
-        "/img/locations/new-york/01.jpg"
+        "/img/locations/new-york/01.jpg",
+        "/img/locations/new-york/02.jpg",
+        "/img/locations/new-york/03.jpg"
       ]
     }
   ]
