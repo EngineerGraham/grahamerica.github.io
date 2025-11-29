@@ -1,26 +1,5 @@
 +++
 title = "Travel"
 description = "Places I've visited around the world"
+id = "travel-map"
 +++
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
-<link href="/css/map.css" rel="stylesheet">
-
-<div class="container-fluid map-container">
-    <div class="map-controls">
-        <button id="zoom-in" class="map-btn" title="Zoom In">+</button>
-        <button id="zoom-out" class="map-btn" title="Zoom Out">-</button>
-        <button id="zoom-reset" class="map-btn" title="Reset">Reset</button>
-    </div>
-
-    <div id="map-wrapper">
-        <div id="map-content">
-            <img src="/img/map/world.svg" alt="World Map" id="world-map">
-            <div id="pins-container"></div>
-        </div>
-    </div>
-</div>
-
-<script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-<script src="/js/map.js"></script>
