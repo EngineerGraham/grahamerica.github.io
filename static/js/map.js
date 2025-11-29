@@ -11,6 +11,7 @@
                 return response.json();
             })
             .then(function(data) {
+                createGrid();
                 createPins(data.locations);
                 initMap();
             })
@@ -18,6 +19,45 @@
                 console.error('Error loading locations:', err);
                 initMap();
             });
+    }
+
+    function createGrid() {
+        var container = document.getElementById('pins-container');
+        if (!container) return;
+
+        var grid = document.createElement('div');
+        grid.id = 'map-grid';
+        grid.className = 'map-grid';
+
+        // Create vertical lines (X axis) every 5%
+        for (var x = 0; x <= 100; x += 5) {
+            var line = document.createElement('div');
+            line.className = 'grid-line-v';
+            line.style.left = x + '%';
+
+            var label = document.createElement('span');
+            label.className = 'grid-label-x';
+            label.textContent = x;
+            line.appendChild(label);
+
+            grid.appendChild(line);
+        }
+
+        // Create horizontal lines (Y axis) every 5%
+        for (var y = 0; y <= 100; y += 5) {
+            var line = document.createElement('div');
+            line.className = 'grid-line-h';
+            line.style.top = y + '%';
+
+            var label = document.createElement('span');
+            label.className = 'grid-label-y';
+            label.textContent = y;
+            line.appendChild(label);
+
+            grid.appendChild(line);
+        }
+
+        container.appendChild(grid);
     }
 
     function createPins(locations) {
