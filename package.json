@@ -1,0 +1,11 @@
+{
+  "name": "personal-site",
+  "private": true,
+  "scripts": {
+    "fix-orientation": "node scripts/fix-orientation.js",
+    "build": "npm run fix-orientation && hugo --minify"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.0"
+  }
+}

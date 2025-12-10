@@ -17,6 +17,26 @@
 </div>
 </div>
 
+{{- $locations := slice -}}
+{{- range $key, $loc := .Site.Data.locations -}}
+  {{- $images := slice -}}
+  {{- $imgPath := printf "img/locations/%s/*" $loc.id -}}
+  {{- $imgResources := resources.Match $imgPath -}}
+  {{- range $imgResources -}}
+    {{- $ext := lower (path.Ext .Name) -}}
+    {{- if or (eq $ext ".jpg") (eq $ext ".jpeg") (eq $ext ".png") (eq $ext ".webp") -}}
+      {{- $processed := .Resize "1800x q85" -}}
+      {{- $images = $images | append $processed.RelPermalink -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $locData := dict "id" $loc.id "name" $loc.name "x" $loc.x "y" $loc.y "images" $images -}}
+  {{- $locations = $locations | append $locData -}}
+{{- end -}}
+
+<script>
+window.LOCATION_DATA = {{ dict "locations" $locations | jsonify | safeJS }};
+</script>
+
 <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 <script src="{{ "js/map.js" | relURL }}"></script>

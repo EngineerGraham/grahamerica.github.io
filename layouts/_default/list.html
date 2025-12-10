@@ -29,18 +29,30 @@
                                   <div class="image">
                                       <a href="{{ .Permalink }}">
                                           {{ if .Params.banner }}
-                                          <img src="{{ .Params.banner | relURL }}" class="img-responsive" alt="">
+                                          <img src="{{ .Params.banner | relURL }}" class="img-responsive" alt="" style="height: 180px; width: 100%; object-fit: cover;">
                                           {{ else }}
-                                          <img src="{{ "img/placeholder.png" | relURL }}" class="img-responsive" alt="">
+                                          <img src="{{ "img/placeholder.png" | relURL }}" class="img-responsive" alt="" style="height: 180px; width: 100%; object-fit: cover;">
                                           {{ end }}
                                       </a>
                                   </div>
                                 </div>
                                 <div class="col-md-8">
                                     <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+                                    {{ if .Params.tags }}
+                                    <p class="tags">
+                                        {{ range .Params.tags }}
+                                        <a href="{{ "tags" | relLangURL }}/{{ . | urlize }}/" class="label label-default">{{ . }}</a>
+                                        {{ end }}
+                                    </p>
+                                    {{ end }}
                                     {{ if not .Site.Params.recent_posts.hide_summary }}
-                                    <p class="intro">{{ .Summary }}</p>
-                                    <p class="read-more"><a href="{{ .Permalink }}" class="btn btn-template-main">{{ i18n "continueReading" }}</a>
+                                    <p class="intro">{{ with .Description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}</p>
+                                    <p class="read-more">
+                                    {{ if lt .WordCount 15 }}
+                                    <span class="btn btn-default disabled" style="opacity: 0.6; cursor: not-allowed;">COMING SOON</span>
+                                    {{ else }}
+                                    <a href="{{ .Permalink }}" class="btn btn-template-main">{{ i18n "continueReading" }}</a>
+                                    {{ end }}
                                     </p>
                                     {{ end }}
                                 </div>
